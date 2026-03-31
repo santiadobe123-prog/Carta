@@ -26,7 +26,7 @@ body {
     position: absolute;
     width: 20px;
     height: 18px;
-    background: #c50000;
+    background: #F4D03F;
     transform: rotate(-45deg);
     animation: float 3s ease-in-out infinite;
 }
@@ -37,7 +37,7 @@ body {
     width: 20px;
     height: 18px;
     position: absolute;
-    background: #df0000;
+    background: #F4D03F;
     border-radius: 50% 50% 50% 50%;
     transform: rotate(-45deg);
 }
