@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ANIMACIÓN CORAZONES */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 18px;
+    background: #c50000;
+    transform: rotate(-45deg);
+    animation: float 3s ease-in-out infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    width: 20px;
+    height: 18px;
+    position: absolute;
+    background: #df0000;
+    border-radius: 50% 50% 50% 50%;
+    transform: rotate(-45deg);
+}
+
+.heart:after {
+    left: 10px;
+    transform: rotate(45deg);
+}
+
+.heart:before {
+    top: -10px;
+    left: 10px;
+    transform: rotate(45deg);
+}
+
+.big-heart {
+    width: 60px;
+    height: 54px;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.big-heart:before,
+.big-heart:after {
+    width: 60px;
+    height: 54px;
+}
+
+/* PÁGINA PRINCIPAL */
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.welcome-box {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 50px 40px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    position: relative;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.heart-container {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+}
+
+.heart-container .heart:nth-child(2) {
+    top: 10px;
+    left: 20px;
+    animation-delay: 0.5s;
+}
+
+.heart-container .heart:nth-child(3) {
+    top: 20px;
+    right: 20px;
+    animation-delay: 1s;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #2a5298;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.intro-text {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.magic-btn {
+    background: linear-gradient(45deg, #ff2323, #a80000);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(244, 208, 63, 0.4);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.magic-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(244, 208, 63, 0.6);
+}
+
+.name-check {
+    margin-top: 30px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.error-message {
+    color: #e74c3c !important;
+    font-weight: bold;
+}
+
+/* PÁGINA DE LA CARTA */
+.carta-container {
+    min-height: 100vh;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #211fa0;
+    color: white;
+    transform: translateX(-5px);
+}
+
+.fotos-section {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.foto-frame {
+    background: rgba(255,255,255,0.9);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+}
+
+.foto {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.foto:hover {
+    transform: scale(1.05);
+}
+
+.carta {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 50px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    position: relative;
+    border: 3px solid rgba(244, 208, 63, 0.3);
+}
+
+.carta-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.heart-envelope {
+    width: 80px;
+    height: 60px;
+    background: linear-gradient(45deg, #2a5298, #1c3d75);
+    margin: 0 auto 20px;
+    border-radius: 15px 15px 50% 50%;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(244, 208, 63, 0.4);
+}
+
+.heart-envelope:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 15px solid #2869d8;
+}
+
+.carta h2 {
+    color: #2a5298;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.carta-contenido {
+    line-height: 1.8;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.carta-contenido p {
+    margin-bottom: 25px;
+}
+
+.firma {
+    margin-top: 40px;
+    text-align: right;
+    font-style: italic;
+    color: #2a5298;
+    font-size: 1.3em;
+}
+
+.tu-nombre {
+    color: #2a5298;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+/* CORAZONES FLOTANTES */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 2em;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-heart:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.floating-heart:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; }
+.floating-heart:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
+.floating-heart:nth-child(4) { top: 40%; right: 25%; animation-delay: 1s; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .welcome-box {
+        padding: 40px 30px;
+        margin: 20px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .fotos-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .foto {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .carta {
+        padding: 30px 25px;
+    }
+}
